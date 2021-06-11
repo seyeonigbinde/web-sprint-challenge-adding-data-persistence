@@ -2,7 +2,7 @@ const db = require('../../data/dbConfig')
 
 function getTasks() {
   return db('tasks as t')
-  .select('t.*')
+  .select('t.*', 'project_name', 'project_description' )
   .leftJoin('projects as p', 't.task_id', '=', 't.project_id')
   .leftJoin('project_resources as pr', 'pr.project_id', '=', 'p.project_id')
 }
