@@ -1,12 +1,12 @@
-const express = require('express');
-const helpers = require('./model');
+const express = require('express')
+const helpers = require('./model')
 
-const router = express.Router();
+const router = express.Router()
 
 router.get('/projects', (req, res, next) => {
   helpers.getProjects()
     .then(projects => {
-      res.status(200).json(projects);
+      res.status(200).json(projects)
     })
     .catch(next); 
 });
@@ -14,9 +14,9 @@ router.get('/projects', (req, res, next) => {
 router.post('/projects', (req, res, next) => { 
   helpers.createProject(req.body)
     .then(project => {
-      res.status(201).json(project);
+      res.status(201).json(project)
     })
     .catch(next);
 });
 
-module.exports = router;
+module.exports = router
